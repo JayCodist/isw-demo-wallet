@@ -43,12 +43,12 @@ export const links: Record<string, ModuleLink> = {
         />
       </svg>
     ),
-    url: "/airtime-data/airtime",
+    url: "/airtime-data/recharge-airtime",
     title: "Airtime & Data",
     children: [
-      { title: "Airtime", url: "/airtime-data/airtime" },
-      { title: "Data", url: "/airtime-data/data" },
-      { title: "Recharge History", url: "/airtime-data/history" }
+      { title: "Airtime", url: "/airtime-data/recharge-airtime" },
+      { title: "Data", url: "/airtime-data/recharge-data" },
+      { title: "Recharge History", url: "/airtime-data/recharge-history" }
     ]
   },
   "/transfer": {
@@ -60,13 +60,13 @@ export const links: Record<string, ModuleLink> = {
         />
       </svg>
     ),
-    url: "/transfer/account",
+    url: "/transfer/transfer-to-account",
     title: "Transfer",
     children: [
-      { title: "Transfer to account", url: "/transfer/account" },
-      { title: "Transfer to eCash", url: "/transfer/e-cash" },
-      { title: "Transfer Link", url: "/transfer/link" },
-      { title: "Transaction History", url: "/transfer/history" }
+      { title: "Transfer to account", url: "/transfer/transfer-to-account" },
+      { title: "Transfer to eCash", url: "/transfer/transfer-to-ecash" },
+      { title: "Transfer Link", url: "/transfer/transfer-link" },
+      { title: "Transaction History", url: "/transfer/transfer-history" }
     ]
   },
   "/pay-bills": {
@@ -80,7 +80,7 @@ export const links: Record<string, ModuleLink> = {
         />
       </svg>
     ),
-    url: "/pay-bills/",
+    url: "/pay-bills",
     title: "Pay Bills",
     children: [{ title: "Pay Bills", url: "/pay-bills" }]
   },
@@ -97,7 +97,7 @@ export const links: Record<string, ModuleLink> = {
         />
       </svg>
     ),
-    url: "/services/",
+    url: "/services",
     title: "Services",
     children: [{ title: "Services", url: "/services" }]
   }
