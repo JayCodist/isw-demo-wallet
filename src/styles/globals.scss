@@ -1,6 +1,6 @@
 html {
   scroll-behavior: smooth;
-  font-size: 90%;
+  font-size: 86%;
   @media (max-width: 1180px) {
     font-size: 84%;
   }
@@ -18,7 +18,7 @@ html {
   }
 
   @media (min-width: 1500px) {
-    font-size: 110%;
+    font-size: 90%;
   }
   @media (min-width: 1700px) {
     font-size: 138%;
@@ -301,7 +301,7 @@ button {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0.8rem 0;
+  margin: 1.8rem 0;
   &.responsive {
     width: unset;
   }
@@ -309,8 +309,7 @@ button {
     width: 50%;
   }
   .question {
-    font-weight: bold;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     font-size: 0.9rem;
     display: flex;
     justify-content: space-between;
@@ -330,6 +329,12 @@ button {
 }
 .larger {
   font-size: larger;
+  &.xl {
+    font-size: x-large;
+  }
+  &.xxl {
+    font-size: xx-large;
+  }
 }
 .block {
   width: 100%;

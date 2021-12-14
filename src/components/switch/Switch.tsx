@@ -11,6 +11,7 @@ interface SwitchProps {
   defaultChecked?: boolean;
   disabled?: boolean;
   id?: string;
+  textAfterSwitch?: boolean;
 }
 
 const Switch: FunctionComponent<SwitchProps> = props => {
@@ -23,7 +24,8 @@ const Switch: FunctionComponent<SwitchProps> = props => {
     checked,
     defaultChecked,
     disabled,
-    id
+    id,
+    textAfterSwitch
   } = props;
 
   return (
@@ -44,10 +46,11 @@ const Switch: FunctionComponent<SwitchProps> = props => {
         disabled={disabled}
         id={id}
       />
-      {text && <span className={styles.text}>{text}</span>}
+      {text && !textAfterSwitch && <span className={styles.text}>{text}</span>}
       <span className={styles["switch-wrapper"]}>
         <span className={styles["switch-icon"]} />
       </span>
+      {text && textAfterSwitch && <span className={styles.text}>{text}</span>}
     </label>
   );
 };

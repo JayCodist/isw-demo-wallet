@@ -1,7 +1,7 @@
 .button {
   border-radius: 0.3rem;
   padding: 0.6rem 1.2rem;
-  border: 0.08rem solid #2b70c9;
+  border: 0.08rem solid #4197d1;
   outline: none;
   transition: 0.3s ease-out;
   display: flex;
@@ -18,7 +18,7 @@
     min-width: 8rem;
   }
   &.primary {
-    background-color: #2b70c9;
+    background-color: #4197d1;
     color: white;
     &.loading {
       background-color: #4b8fe7;
@@ -28,9 +28,9 @@
     }
   }
   &.accent {
-    border: 0.08rem solid #2b70c9;
+    border: 0.08rem solid #4197d1;
     background-color: white;
-    color: #2b70c9;
+    color: #4197d1;
     &:hover {
       color: #6c9ddd;
       border-color: #6c9ddd;
@@ -39,7 +39,7 @@
   &.plain {
     background-color: transparent;
     border: none;
-    color: #2b70c9;
+    color: #4197d1;
     font-weight: 800;
   }
   &.transparent {

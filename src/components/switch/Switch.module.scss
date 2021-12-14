@@ -15,7 +15,7 @@
     display: none;
   }
   .text {
-    margin-right: 0.4rem;
+    margin: 0 0.8rem;
   }
   .switch-wrapper {
     background-color: gray;
@@ -37,7 +37,7 @@
   }
   .switch:checked ~ .switch-wrapper {
     // background-color: #00875A;
-    background-color: #2b70c9;
+    background-color: #4197d1;
     justify-content: flex-end;
     .switch-icon {
       left: 1.35rem;

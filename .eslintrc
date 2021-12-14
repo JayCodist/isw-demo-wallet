@@ -58,6 +58,7 @@
     "react-hooks/exhaustive-deps": "off",
     "react/react-in-jsx-scope": "off",
     "react/button-has-type": "off",
+    "react/require-default-props": "off",
 
     // Accessiblity temporary disable
     "jsx-a11y/interactive-supports-focus": "off",

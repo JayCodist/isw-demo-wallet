@@ -43,15 +43,15 @@ export const resources = {
   }
 };
 
-const cache = [];
+// const cache = [];
 
-const preloadImages = (images: string[]) => {
-  images.forEach(image => {
-    const img = new Image();
-    img.src = image;
-    cache.push(img);
-  });
-};
+// const preloadImages = (images: string[]) => {
+//   images.forEach(image => {
+//     const img = new Image();
+//     img.src = image;
+//     cache.push(img);
+//   });
+// };
 
-preloadImages(Object.values(resources.icons));
-preloadImages(Object.values(resources.images));
+// preloadImages(Object.values(resources.icons));
+// preloadImages(Object.values(resources.images));
