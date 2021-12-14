@@ -1,0 +1,51 @@
+.wrapper {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.small {
+    transform: scale(0.7);
+  }
+  &.responsive {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .switch {
+    display: none;
+  }
+  .text {
+    margin-right: 0.4rem;
+  }
+  .switch-wrapper {
+    background-color: gray;
+    border-radius: 1rem;
+    height: 1.6rem;
+    width: 2.8rem;
+    transition: 0.3s ease-out;
+    position: relative;
+    .switch-icon {
+      background-color: white;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      transition: 0.3s ease-out;
+      position: absolute;
+      top: 0.15rem;
+      left: 0.15rem;
+    }
+  }
+  .switch:checked ~ .switch-wrapper {
+    // background-color: #00875A;
+    background-color: #2b70c9;
+    justify-content: flex-end;
+    .switch-icon {
+      left: 1.35rem;
+    }
+  }
+
+  // .switch:checked ~ .text
+  // {
+  //     color: #00875A;
+  // }
+}

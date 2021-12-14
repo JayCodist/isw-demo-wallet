@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Location } from "@reach/router";
+import { FunctionComponent, useState } from "react";
+import getRoutes from "./routes";
+import AppLayout from "./components/layout/Layout";
+import { User } from "./utils/helpers/types";
+import UserContext from "./context/user-context";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const demoUser: User = {
+  firstname: "Johnson",
+  lastname: "Uba",
+  username: "johnson.uba",
+  email: "johnson@gmail.com"
+};
+
+const App: FunctionComponent = () => {
+  const [user] = useState<User | null>(demoUser);
+
+  return user ? (
+    <UserContext.Provider value={user}>
+      <Location>
+        {({ location }) => (
+          <AppLayout location={location}>{getRoutes()}</AppLayout>
+        )}
+      </Location>
+    </UserContext.Provider>
+  ) : (
+    <div>Loading</div>
   );
-}
+};
 
 export default App;

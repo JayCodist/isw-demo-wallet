@@ -1,0 +1,93 @@
+.button {
+  border-radius: 0.3rem;
+  padding: 0.6rem 1.2rem;
+  border: 0.08rem solid #2b70c9;
+  outline: none;
+  transition: 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.loading {
+    cursor: default;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  &.min-width {
+    min-width: 8rem;
+  }
+  &.primary {
+    background-color: #2b70c9;
+    color: white;
+    &.loading {
+      background-color: #4b8fe7;
+    }
+    &:hover {
+      background-color: #0b3975;
+    }
+  }
+  &.accent {
+    border: 0.08rem solid #2b70c9;
+    background-color: white;
+    color: #2b70c9;
+    &:hover {
+      color: #6c9ddd;
+      border-color: #6c9ddd;
+    }
+  }
+  &.plain {
+    background-color: transparent;
+    border: none;
+    color: #2b70c9;
+    font-weight: 800;
+  }
+  &.transparent {
+    background-color: transparent;
+    border: none;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+  &.danger {
+    color: #f45367;
+    &.accent {
+      border: 0.08rem solid #f45367;
+      &:hover {
+        color: white;
+        background-color: #f45367;
+        border-color: #f45367;
+      }
+    }
+  }
+
+  &.large {
+    padding: 0.8rem 2rem;
+  }
+  &.small {
+    font-size: smaller;
+    padding: 0.4rem 1rem;
+  }
+  &.icon-only {
+    padding: 0;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  .loader {
+    height: auto;
+    width: 0;
+    margin-left: 0;
+    transition: 0.3s ease-out;
+    &.active {
+      width: 1.1rem;
+      margin-left: 0.6rem;
+    }
+  }
+  .start-icon {
+    height: 1rem;
+    width: auto;
+    margin-right: 0.6rem;
+    align-self: center;
+  }
+}

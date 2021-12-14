@@ -1,0 +1,55 @@
+.wrapper {
+  border: 0.15rem dashed rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 16rem;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-out;
+  position: relative;
+  &.drag-hover,
+  &:hover {
+    border-color: #e7c91d;
+  }
+  .input {
+    display: none;
+  }
+  .img {
+    height: 95%;
+    width: auto;
+    max-width: 95%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+  .clear {
+    position: absolute;
+    width: 1.5rem;
+    height: auto;
+    z-index: 5;
+    top: 1rem;
+    right: 1rem;
+    transition: 0.2s ease-out;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+  .add {
+    padding: 0.4rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 0.15rem solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.6rem;
+  }
+  .file-name {
+    text-align: center;
+    word-wrap: break-word;
+    width: 90%;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}

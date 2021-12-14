@@ -1,0 +1,51 @@
+.wrapper {
+  position: relative;
+  font-weight: normal;
+  &:hover .tooltip.left,
+  &:hover .tooltip.right {
+    z-index: 11;
+    transform: translateX(0) scale(1);
+  }
+  .tooltip {
+    position: absolute;
+    z-index: -1;
+    background-color: rgb(73, 73, 73);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: 0.1s ease-out;
+    width: 14rem;
+    transform: translateX(4rem) scale(0.1);
+    top: -0.4rem;
+    right: 1.6rem;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 0;
+      width: 0;
+      background-color: transparent;
+      top: 0.5rem;
+      right: -0.9rem;
+      border: 0.5rem solid rgb(73, 73, 73);
+      border-color: transparent transparent transparent rgb(73, 73, 73);
+      transition: 0.3s ease-out;
+    }
+    &.right {
+      right: unset;
+      left: 1.6rem;
+      transform: translateX(-4rem) scale(0.1);
+      &::after {
+        right: unset;
+        left: -0.9rem;
+        border-color: transparent rgb(73, 73, 73) transparent transparent;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+  .anchor {
+    cursor: pointer;
+  }
+}

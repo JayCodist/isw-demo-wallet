@@ -1,0 +1,67 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  background-color: white;
+  border-radius: 0.3rem;
+  border: 0.15rem solid rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-out;
+  align-items: center;
+  &.responsive {
+    width: 100%;
+  }
+  &.with-icon {
+    padding: 0 1rem;
+  }
+  .input,
+  .input:active {
+    width: 100%;
+    transition: 0.3s ease-out;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    &.with-icon {
+      padding: 0.5rem 0;
+    }
+    &.dimmed {
+      background-color: #fafbfc;
+    }
+    &.padding-left {
+      padding-left: 1.5rem;
+    }
+    &.padding-right {
+      padding-right: 1.5rem;
+    }
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .icon {
+    margin-right: 0.4rem;
+    height: 1.2rem;
+  }
+  .symbol {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    font-size: larger;
+    color: rgb(173, 170, 170);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    &.end {
+      right: 0.4rem;
+    }
+    &.start {
+      left: 0.4rem;
+    }
+    .clear-icon {
+      height: 1rem;
+      width: auto;
+    }
+  }
+}
+
+.no-border {
+  border: none;
+}
