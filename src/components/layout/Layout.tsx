@@ -1,12 +1,13 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Link, WindowLocation } from "@reach/router";
 import styles from "./Layout.module.scss";
 import LayoutContext, { ConfirmParams } from "../../context/layout-context";
 import Modal from "../modal/Modal";
 import Button from "../button/Button";
 import useInterval from "../../utils/hooks/useInterval";
-import { allLinks } from "../../utils/constants";
+import { links } from "../../utils/constants";
 import { resources } from "../../utils/resources";
+import UserContext from "../../context/user-context";
 
 const toasterDuration = {
   success: 2000,
@@ -54,11 +55,8 @@ type LayoutProps = {
   location: WindowLocation;
 };
 
-const isActiveLink = (currentPath: string, linkToTest: string) =>
-  currentPath.split("/")[1] === linkToTest.slice(1);
-// currentPath.startsWith(linkToTest);
-
 const AppLayout: FunctionComponent<LayoutProps> = props => {
+  const [collapsed, setCollapsed] = useState(true);
   const [showConfirm, setShowConfirm] = useState(false);
   const [confirmParams, setConfirmParams] = useState(initialConfirmParams);
   const [showToaster, setShowToaster] = useState(false);
@@ -68,6 +66,10 @@ const AppLayout: FunctionComponent<LayoutProps> = props => {
 
   const { children, location } = props;
   const route = location.pathname;
+
+  const mainRoute = `/${route.split("/")[1]}`;
+  const currentSubLinks: { url: string; title: string }[] =
+    links[mainRoute]?.children || [];
 
   const confirm = (params: ConfirmParams) => {
     setConfirmParams(params);
@@ -121,29 +123,64 @@ const AppLayout: FunctionComponent<LayoutProps> = props => {
 
   return (
     <LayoutContext.Provider value={contextValue}>
-      <section className={styles.container}>
-        <nav className={styles.nav}>
-          <div className="flex column">
-            {allLinks.map(link => (
-              <Link key={link.url} to={link.url}>
-                <span
-                  className={[
-                    styles.link,
-                    isActiveLink(route, link.url) && styles.active
-                  ].join(" ")}
-                >
-                  <img
-                    className="generic-icon margin-right spaced"
-                    alt={link.title}
-                    src={link.icon}
-                  />
-                  {link.title}
-                </span>
+      <section
+        className={[styles.container, collapsed && styles.collapsed].join(" ")}
+      >
+        <div className={styles["navbar-wrapper"]}>
+          <nav
+            onMouseEnter={() => setCollapsed(false)}
+            onMouseLeave={() => setCollapsed(true)}
+            className={[
+              styles["main-navbar"],
+              collapsed ? styles.collapsed : ""
+            ].join(" ")}
+          >
+            <h1 className={styles.logo}>QuickWallet</h1>
+            {Object.keys(links).map(key => (
+              <Link
+                to={links[key].url}
+                key={links[key].url}
+                className={[
+                  styles["main-link"],
+                  links[key].url.startsWith(mainRoute) ? styles.active : ""
+                ].join(" ")}
+              >
+                {links[key].icon}
+                <span className={styles.text}>{links[key].title}</span>
               </Link>
             ))}
-          </div>
-        </nav>
-        <section className={styles.right}>
+          </nav>
+          <nav className={styles["sub-navbar"]}>
+            {currentSubLinks.map(link => (
+              <Link
+                key={link.url}
+                to={link.url}
+                className={[
+                  styles["sub-link"],
+                  route.startsWith(link.url) ? styles.active : ""
+                ].join(" ")}
+              >
+                {link.title}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <section
+          className={[styles.right, collapsed ? styles.collapsed : ""].join(
+            " "
+          )}
+        >
+          <header className={styles.header}>
+            <div className={styles["bell-wrapper"]}>
+              <img
+                alt="notification"
+                src="/icons/bell-icon.svg"
+                className={styles["bell-icon"]}
+              />
+              <span className={styles.dot} />
+            </div>
+            <UserArea />
+          </header>
           <div className={styles["content-wrapper"]}>{children}</div>
           {globalLoading && (
             <div className={styles["loading-backdrop"]}>
@@ -155,7 +192,7 @@ const AppLayout: FunctionComponent<LayoutProps> = props => {
               </div>
               <img
                 alt="loading"
-                src={resources.images.ANIMATION_IMG}
+                src="/images/animation-img.svg"
                 className={styles["loading-img"]}
               />
             </div>
@@ -272,6 +309,28 @@ const ConfirmModal = (props: ConfirmModalProps) => {
         </Button>
       </div>
     </Modal>
+  );
+};
+
+const UserArea: FunctionComponent = () => {
+  const user = useContext(UserContext);
+
+  // const handleLogout = async () => {
+  //   AppStorage.remove("WALLET_SAVED_USER");
+  //   setUser(null);
+  //   router.push("/public/auth/login");
+  // };
+
+  return (
+    <div className={styles["user-area"]}>
+      <img src="/images/avatar.png" alt="avatar" className={styles.avatar} />
+      <div className={styles["name-area"]}>
+        <span className={styles.name}>
+          {user?.firstName} {user?.lastName}
+        </span>
+      </div>
+      <img alt="arrow" className={styles.arrow} src="/icons/arrow-down.svg" />
+    </div>
   );
 };
 

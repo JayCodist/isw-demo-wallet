@@ -1,6 +1,6 @@
 import { RouteComponentProps } from "@reach/router";
 import { FunctionComponent } from "react";
-import { PermissionsInterface, User, UserType } from "./types";
+import { PermissionsInterface } from "./types";
 
 export const isIssuer: (
   permissionsMap: PermissionsInterface
@@ -11,9 +11,7 @@ export const isIssuer: (
 };
 
 interface RouteGuardProps {
-  currentUser: User | null;
   component: FunctionComponent<RouteComponentProps>;
-  allowedUserTypes: UserType[];
   path: string;
 }
 

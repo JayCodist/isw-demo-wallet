@@ -6,9 +6,9 @@ import { User } from "./utils/helpers/types";
 import UserContext from "./context/user-context";
 
 const demoUser: User = {
-  firstname: "Johnson",
-  lastname: "Uba",
-  username: "johnson.uba",
+  firstName: "Johnson",
+  lastName: "Uba",
+  userName: "johnson.uba",
   email: "johnson@gmail.com"
 };
 

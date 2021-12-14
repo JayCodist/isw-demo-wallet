@@ -1,44 +1,107 @@
 .container {
   min-height: 100vh;
   position: relative;
-  display: flex;
-  .nav {
-    width: 21rem;
-    padding: 2rem 0;
-    padding-top: 4rem;
-    color: white;
-    background-color: #06355a;
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .navbar-wrapper {
     position: fixed;
-    height: 100%;
-    .link {
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: fit-content;
+    display: flex;
+    z-index: 99;
+    .main-navbar {
       display: flex;
-      align-items: center;
-      margin: 0.3rem 0;
-      padding: 1rem 1.5rem;
-      transition: 0.3s ease-out;
-      border-left: 0.4rem solid transparent;
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.05);
+      flex-direction: column;
+      background-color: white;
+      max-width: 50rem;
+      &.collapsed {
+        .logo,
+        .main-link .text {
+          max-width: 0;
+          overflow: hidden;
+          padding-right: 0;
+        }
       }
-      &.active {
-        background-color: rgba(255, 255, 255, 0.12);
-        border-color: white;
+      .logo {
+        font-weight: 900;
+        font-family: "Montserrat", "Segoe UI", sans-serif;
+        font-size: 2rem;
+        margin: 2rem 1.5rem;
+        transition: 0.3s ease-out;
+      }
+      .main-link {
+        padding: 0.7rem 0 0.7rem 1.2rem;
+        color: #b3bac5;
+        display: flex;
+        align-items: center;
+        border-left: solid 0.4rem transparent;
+        transition: 0.3s ease-out;
+        &:nth-child(2) {
+          border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+          padding-bottom: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+        &:last-child {
+          border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+          padding-top: 1.2rem;
+          margin-top: 0.5rem;
+        }
+        &:hover {
+          background-color: #68bef73f;
+          border-left-color: #68bef73f;
+        }
+        &.active {
+          background-color: #68bef7;
+          border-left-color: #051881;
+          color: black;
+        }
+        svg {
+          height: 1.5rem;
+          width: auto;
+        }
+        .text {
+          margin-left: 1rem;
+          padding-right: 3rem;
+          transition: 0.3s ease-out;
+        }
+      }
+    }
+    .sub-navbar {
+      display: flex;
+      flex-direction: column;
+      padding: 6rem 1.2rem 2rem;
+      width: fit-content;
+      background-color: #68bef7;
+      align-items: flex-start;
+      min-width: 12.5rem;
+      position: relative;
+      z-index: 99;
+      .sub-link {
+        margin: 0.5rem 0;
+        padding: 0.4rem 1rem 0.4rem 0.7rem;
+        border-radius: 0.3rem;
+        transition: 0.3s ease-out;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+        &.active {
+          background-color: white;
+        }
       }
     }
   }
   .right {
-    padding: 2rem 4rem;
-    padding-left: 26rem;
-    background-color: #e1e1e2;
-    min-height: inherit;
+    padding-left: 20rem;
+    background-color: #f4f5f7;
+    min-height: 100vh;
     transition: 0.3s ease-out;
     padding-bottom: 2rem;
-    width: 100%;
+    // &.collapsed
+    // {
+    //     padding-left: 20rem;
+    // }
   }
+
   .loading-backdrop {
     position: fixed;
     width: 100%;
@@ -56,7 +119,7 @@
       width: 100%;
       left: 0;
       top: 0;
-      background-color: #f4e79a;
+      background-color: #68bef7;
       transition: 0.3s ease-out;
       .percent {
         background-color: #d1b304;
@@ -124,6 +187,28 @@
         top: 40%;
         right: 5%;
       }
+
+      .options {
+        position: absolute;
+        top: 105%;
+        left: 0.1rem;
+        padding: 0.3rem;
+        box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+        border-radius: 0.3rem;
+        background-color: white;
+        width: 97%;
+        display: flex;
+        flex-direction: column;
+        transition: 0.2s ease-out;
+        transform: translateY(-1rem);
+        opacity: 50;
+        z-index: -9;
+        &.active {
+          z-index: 99;
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
     }
   }
 }
@@ -143,7 +228,7 @@
   right: 0;
   z-index: 9999999;
   height: fit-content;
-  width: calc(100% - 21rem);
+  width: calc(100vw - 18rem);
   transition: 0.2s ease-out;
   color: white;
   padding: 1rem 2rem;
@@ -161,7 +246,7 @@
     background-color: rgb(220, 20, 20);
   }
   &.info {
-    background-color: #2b70c9;
+    background-color: #2684ff;
   }
   .icon-wrapper {
     background-color: white;
@@ -197,3 +282,7 @@
     }
   }
 }
+
+// .container.collapsed ~ .toaster {
+//   width: calc(100vw - 17rem);
+// }

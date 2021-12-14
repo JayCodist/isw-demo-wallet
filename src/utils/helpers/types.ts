@@ -7,9 +7,9 @@ export interface PermissionsInterface {
 
 export type UserType = "ISW_ADMIN" | "ISSUER";
 export interface User {
-  firstname: string;
-  username: string;
-  lastname: string;
+  firstName: string;
+  userName: string;
+  lastName: string;
   email: string;
 }
 
