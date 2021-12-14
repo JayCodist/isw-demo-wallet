@@ -30,7 +30,7 @@ export const links: Record<string, ModuleLink> = {
     ),
     url: "/dashboard",
     title: "Dashboard",
-    children: [{ title: "Home", url: "/dashboard" }]
+    children: [{ title: "Dashboard", url: "/dashboard" }]
   },
   "/airtime-data": {
     icon: (
