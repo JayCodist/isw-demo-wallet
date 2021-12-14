@@ -28,36 +28,39 @@
         font-size: 2rem;
         margin: 2rem 1.5rem;
         transition: 0.3s ease-out;
+        color: #1078c8;
       }
       .main-link {
-        padding: 0.7rem 0 0.7rem 1.2rem;
+        padding: 1.4rem 0 1.4rem 1.2rem;
+        font-size: larger;
         color: #b3bac5;
         display: flex;
         align-items: center;
         border-left: solid 0.4rem transparent;
         transition: 0.3s ease-out;
+        white-space: nowrap;
+        &:hover {
+          background-color: #4197d13f;
+          border-left-color: #1f445c3f;
+        }
         &:nth-child(2) {
           border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
           padding-bottom: 1.2rem;
           margin-bottom: 0.5rem;
         }
-        &:last-child {
-          border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
-          padding-top: 1.2rem;
-          margin-top: 0.5rem;
-        }
-        &:hover {
-          background-color: #68bef73f;
-          border-left-color: #68bef73f;
-        }
         &.active {
-          background-color: #68bef7;
-          border-left-color: #051881;
-          color: black;
+          background-color: #4197d1;
+          border-left-color: #2c6286;
+          color: white;
+          svg {
+            margin: 0;
+          }
         }
         svg {
-          height: 1.5rem;
+          height: 1.8rem;
           width: auto;
+          position: relative;
+          margin-left: -0.3rem;
         }
         .text {
           margin-left: 1rem;
@@ -71,7 +74,7 @@
       flex-direction: column;
       padding: 6rem 1.2rem 2rem;
       width: fit-content;
-      background-color: #68bef7;
+      background-color: #4197d1;
       align-items: flex-start;
       min-width: 12.5rem;
       position: relative;
@@ -81,11 +84,13 @@
         padding: 0.4rem 1rem 0.4rem 0.7rem;
         border-radius: 0.3rem;
         transition: 0.3s ease-out;
+        color: white;
         &:hover {
           background-color: rgba(255, 255, 255, 0.4);
         }
         &.active {
           background-color: white;
+          color: inherit;
         }
       }
     }
@@ -119,7 +124,7 @@
       width: 100%;
       left: 0;
       top: 0;
-      background-color: #68bef7;
+      background-color: #4197d1;
       transition: 0.3s ease-out;
       .percent {
         background-color: #d1b304;
@@ -159,54 +164,18 @@
       }
     }
     .user-area {
-      border: 0.1rem solid #a5adba;
-      background-color: white;
       display: flex;
-      cursor: pointer;
-      align-items: center;
-      border-radius: 0.5rem;
-      padding: 0.4rem 1rem;
-      position: relative;
-      padding-right: 3rem;
-      .avatar {
-        height: 1.5rem;
-      }
-      .name-area {
+      .link-item {
         display: flex;
         flex-direction: column;
+        margin: 0 1rem;
         cursor: pointer;
-        margin-left: 0.8rem;
-        justify-content: space-around;
-        font-size: 0.85rem;
-        .role {
-          color: rgb(187, 186, 186);
-        }
-      }
-      .arrow {
-        position: absolute;
-        top: 40%;
-        right: 5%;
-      }
-
-      .options {
-        position: absolute;
-        top: 105%;
-        left: 0.1rem;
-        padding: 0.3rem;
-        box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
-        border-radius: 0.3rem;
-        background-color: white;
-        width: 97%;
-        display: flex;
-        flex-direction: column;
-        transition: 0.2s ease-out;
-        transform: translateY(-1rem);
-        opacity: 50;
-        z-index: -9;
-        &.active {
-          z-index: 99;
-          transform: translateY(0);
-          opacity: 1;
+        font-weight: bold;
+        color: #595959;
+        .icon {
+          height: 1.5rem;
+          width: auto;
+          margin-bottom: 0.3rem;
         }
       }
     }

@@ -323,13 +323,20 @@ const UserArea: FunctionComponent = () => {
 
   return (
     <div className={styles["user-area"]}>
-      <img src="/images/avatar.png" alt="avatar" className={styles.avatar} />
-      <div className={styles["name-area"]}>
-        <span className={styles.name}>
-          {user?.firstName} {user?.lastName}
+      <div className={styles["link-item"]}>
+        <img
+          src="/icons/referrals.svg"
+          alt="referrals"
+          className={styles.icon}
+        />
+        <span className={styles["link-title"]}>Referrals</span>
+      </div>
+      <div className={styles["link-item"]}>
+        <img src="/icons/demo-user.svg" alt="user" className={styles.icon} />
+        <span className={styles["link-title"]}>
+          Hi, {user?.firstName || "There"}
         </span>
       </div>
-      <img alt="arrow" className={styles.arrow} src="/icons/arrow-down.svg" />
     </div>
   );
 };
