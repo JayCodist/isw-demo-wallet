@@ -9,5 +9,6 @@ export const statusRender: (status: boolean) => JSX.Element = status => {
   );
 };
 
-export const percentRender: (percentage: number | string) => string =
-  percentage => `${percentage}%`;
+export const percentRender: (
+  percentage: number | string
+) => string = percentage => `${percentage}%`;
