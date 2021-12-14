@@ -13,7 +13,7 @@
     }
   }
   .left {
-    width: 60rem;
+    width: 50rem;
     padding: 2rem;
     &.active {
       box-shadow: 0.5rem 0 0.5rem -0.2rem rgba(0, 0, 0, 0.2);
@@ -30,7 +30,7 @@
   }
   .right {
     width: 100%;
-    padding: 1rem 3rem;
+    padding: 3rem 4rem;
     &.active {
       box-shadow: -0.5rem 0 0.5rem -0.2rem rgba(0, 0, 0, 0.2);
     }
