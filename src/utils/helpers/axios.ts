@@ -23,16 +23,16 @@ const settings = {
 const baseURLCert =
   process.env.NODE_ENV === "development"
     ? "**"
-    : "https://isw-demo-wallet.co/api";
+    : "https://isw-demo-wallet.co/api/cert";
 
 const baseURLITG =
   process.env.NODE_ENV === "test"
-    ? "itg-portlet-base"
-    : "https://interswitch-tokenization-gateway.k9.isw.la/itg/config/api/v1";
+    ? "**"
+    : "https://isw-demo-wallet.co/api/itg";
 const baseURLCTS =
   process.env.NODE_ENV === "test"
-    ? "itg-portlet-cts"
-    : `https://card-tokenization-service.k8.isw.la/card-tokenization/api`;
+    ? "**"
+    : `https://isw-demo-wallet.co/api/cts`;
 
 const instanceITG = axios.create({ ...settings, baseURL: baseURLITG });
 const instanceCTS = axios.create({ ...settings, baseURL: baseURLCTS });
